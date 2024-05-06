@@ -8,7 +8,7 @@
     
     <link rel="stylesheet" href="style.css">
 
-    <script defer src="script.js"></script>
+    <script defer src="script.js" defer></script>
 </head>
 <body>
     <div class="container">
@@ -17,10 +17,10 @@
         <div class="attacks">
             <div class="ap-text">100 AP</div>
             <progress id="ap-meter" value="100" max="100"></progress>
-            <button class="attack-btn arcane-scepter"></button>
-            <button class="attack-btn entangle"></button>
-            <button class="attack-btn dragon-blade"></button>
-            <button class="attack-btn star-fire"></button>
+            <button class="attack-btn arcane-scepter" onclick="attackArcane(event)" value="" data-hp="14" data-ap="12"></button>
+            <!-- <button class="attack-btn entangle" onclick="attack(event)" value=""></button>
+            <button class="attack-btn dragon-blade" onclick="attack(event)" value=""></button>
+            <button class="attack-btn star-fire" onclick="attack(event)" value=""></button> -->
         </div>
 
         <div class="enemy">
