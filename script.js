@@ -6,6 +6,8 @@ let fighterAP = 100;
 const min = 0;
 let fungusMovement = document.getElementById('fungus-movement');
 let attackButton = document.getElementsByClassName('attack-btn');
+let attackBar = document.getElementById('ap-meter');
+let healthBar = document.getElementById('hp-meter');
 
 console.log('fungusmovement', fungusMovement);
 console.log('attack button', attackButton);
@@ -42,6 +44,8 @@ function attackArcane(event){
     fungusHP -= Number(event.target.dataset.hp);
     fungusHP = Math.max(fungusHP, 0);
     fighterAP = Math.max(fighterAP, 0);
+    attackBar.value -= Number(event.target.dataset.ap);
+    healthBar.value -= Number(event.target.dataset.hp);
 
     hitPoints.innerText = fungusHP;
     attackPoints.innerText = fighterAP;
@@ -96,6 +100,8 @@ function attackEntangle(event){
     fungusHP -= Number(event.target.dataset.hp);
     fungusHP = Math.max(fungusHP, 0);
     fighterAP = Math.max(fighterAP, 0);
+    attackBar.value -= Number(event.target.dataset.ap);
+    healthBar.value -= Number(event.target.dataset.hp);
 
     hitPoints.innerText = fungusHP;
     attackPoints.innerText = fighterAP;
@@ -133,6 +139,8 @@ function attackDragon(event){
     fungusHP -= Number(event.target.dataset.hp);
     fungusHP = Math.max(fungusHP, 0);
     fighterAP = Math.max(fighterAP, 0);
+    attackBar.value -= Number(event.target.dataset.ap);
+    healthBar.value -= Number(event.target.dataset.hp);
 
     hitPoints.innerText = fungusHP;
     attackPoints.innerText = fighterAP;
@@ -168,6 +176,8 @@ function attackStar(event){
     fungusHP -= Number(event.target.dataset.hp);
     fungusHP = Math.max(fungusHP, 0);
     fighterAP = Math.max(fighterAP, 0);
+    attackBar.value -= Number(event.target.dataset.ap);
+    healthBar.value -= Number(event.target.dataset.hp);
 
     hitPoints.innerText = fungusHP;
     attackPoints.innerText = fighterAP;
