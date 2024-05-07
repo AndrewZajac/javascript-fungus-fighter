@@ -8,7 +8,11 @@ let fungusMovement = document.getElementById('fungus-movement');
 let attackButton = document.getElementsByClassName('attack-btn');
 let attackBar = document.getElementById('ap-meter');
 let healthBar = document.getElementById('hp-meter');
+const hitPoints = document.getElementsByClassName('hp-text')[0];
+const attackPoints = document.getElementsByClassName('ap-text')[0];
+// let regen = setInterval(healthBar, 1000);
 
+console.log('hitpoints', hitPoints);
 console.log('fungusmovement', fungusMovement);
 console.log('attack button', attackButton);
 
@@ -36,8 +40,8 @@ function onReady() {
 onReady()
 
 function attackArcane(event){
-    const hitPoints = document.getElementsByClassName('hp-text')[0]
-    const attackPoints = document.getElementsByClassName('ap-text')[0]
+    const hitPoints = document.getElementsByClassName('hp-text')[0];
+    const attackPoints = document.getElementsByClassName('ap-text')[0];
     
 
     fighterAP -= Number(event.target.dataset.ap);
@@ -47,8 +51,8 @@ function attackArcane(event){
     attackBar.value -= Number(event.target.dataset.ap);
     healthBar.value -= Number(event.target.dataset.hp);
 
-    hitPoints.innerText = fungusHP;
-    attackPoints.innerText = fighterAP;
+    hitPoints.innerText = `${fungusHP} HP`;
+    attackPoints.innerText = `${fighterAP} HP`;
 
 
     if(fungusHP <= 0){
@@ -63,38 +67,15 @@ function attackArcane(event){
         console.log('fighter', fighterAP);
         disableAttacks();
     }
-    // if(fungusHP === 0){
-    //     fungusMovement.classList.replace('walk', 'dead');
-    //     console.log(classList);
-    //     console.log('fungus2'), fungusHP;
-    // }
-    // if(fighterAP === 0){
-    //     fungusMovement.classList.replace('walk', 'jump')
-    //     console.log('fighter2', fighterAP);
-    // }
-
-    // if(fighterAP === 0 || fungusHP === 0){
-    //     // fungusMovement.classList.replace('walk', 'jump')
-    //     console.log('fighterfungus',fungusHP, fighterAP);
-    //     attackButton[i].disabled = true;
-    // }
-
-
-    // if(fungusHP <= min){
-    //     console.log('Im dead', fungusHP);
-    //     fungusHP = min;
-    //     fungusHP === min;
-    // }
-
-    // checkHealth();
-    // dead();
+    
+    startFungusRegen();
 
 
 }
 
 function attackEntangle(event){
-    const hitPoints = document.getElementsByClassName('hp-text')[0]
-    const attackPoints = document.getElementsByClassName('ap-text')[0]
+    // const hitPoints = document.getElementsByClassName('hp-text')[0]
+    // const attackPoints = document.getElementsByClassName('ap-text')[0]
 
     fighterAP -= Number(event.target.dataset.ap);
     fungusHP -= Number(event.target.dataset.hp);
@@ -103,8 +84,8 @@ function attackEntangle(event){
     attackBar.value -= Number(event.target.dataset.ap);
     healthBar.value -= Number(event.target.dataset.hp);
 
-    hitPoints.innerText = fungusHP;
-    attackPoints.innerText = fighterAP;
+    hitPoints.innerText = `${fungusHP} HP`;
+    attackPoints.innerText = `${fighterAP} HP`;
 
     if(fungusHP <= 0){
         fungusHP = 0;
@@ -118,22 +99,13 @@ function attackEntangle(event){
         console.log('fighter', fighterAP);
         disableAttacks();
     }
-    // if(fighterAP === 0 || fungusHP === 0){
-    //     // fungusMovement.classList.replace('walk', 'jump')
-    //     console.log('fighterfungus',fungusHP, fighterAP);
-    //     attackButton.disabled = true;
-    // }
 
-    // console.log('no lower than 0', fighterAP);
-
-    // checkHealth();
-    // dead();
-
+    startFungusRegen()
 }
 
 function attackDragon(event){
-    const hitPoints = document.getElementsByClassName('hp-text')[0];
-    const attackPoints = document.getElementsByClassName('ap-text')[0];
+    // const hitPoints = document.getElementsByClassName('hp-text')[0];
+    // const attackPoints = document.getElementsByClassName('ap-text')[0];
 
     fighterAP -= Number(event.target.dataset.ap);
     fungusHP -= Number(event.target.dataset.hp);
@@ -142,8 +114,8 @@ function attackDragon(event){
     attackBar.value -= Number(event.target.dataset.ap);
     healthBar.value -= Number(event.target.dataset.hp);
 
-    hitPoints.innerText = fungusHP;
-    attackPoints.innerText = fighterAP;
+    hitPoints.innerText = `${fungusHP} HP`;
+    attackPoints.innerText = `${fighterAP} HP`;
 
     if(fungusHP <= 0){
         fungusHP = 0;
@@ -157,20 +129,14 @@ function attackDragon(event){
         console.log('fighter', fighterAP);
         disableAttacks();
     }
-    // if(fighterAP === 0 || fungusHP === 0){
-    //     // fungusMovement.classList.replace('walk', 'jump')
-    //     console.log('fighterfungus',fungusHP, fighterAP);
-    //     attackButton.disabled = true;
-    // }
 
-    // checkHealth();
-    // dead();
+    startFungusRegen()
 
 }
 
 function attackStar(event){
-    const hitPoints = document.getElementsByClassName('hp-text')[0]
-    const attackPoints = document.getElementsByClassName('ap-text')[0]
+    // const hitPoints = document.getElementsByClassName('hp-text')[0]
+    // const attackPoints = document.getElementsByClassName('ap-text')[0]
 
     fighterAP -= Number(event.target.dataset.ap);
     fungusHP -= Number(event.target.dataset.hp);
@@ -178,9 +144,10 @@ function attackStar(event){
     fighterAP = Math.max(fighterAP, 0);
     attackBar.value -= Number(event.target.dataset.ap);
     healthBar.value -= Number(event.target.dataset.hp);
+    
 
-    hitPoints.innerText = fungusHP;
-    attackPoints.innerText = fighterAP;
+    hitPoints.innerText = `${fungusHP} HP`;
+    attackPoints.innerText = `${fighterAP} AP`;
 
     if(fungusHP <= 0){
         fungusHP = 0;
@@ -194,53 +161,24 @@ function attackStar(event){
         console.log('fighter', fighterAP);
         disableAttacks();
     }
-    // if(fighterAP === 0 || fungusHP === 0){
-    //     // fungusMovement.classList.replace('walk', 'jump')
-    //     console.log('fighterfungus',fungusHP, fighterAP);
-    //     attackButton.disabled = true;
-    // }
 
-    // dead();
-    // checkHealth();
+    startFungusRegen()
 }
 
+function startFungusRegen(){
 
-// function checkHealth(){
-//     if(fungusHP <= 0){
-//         fungusHP = 0;
-//         console.log('fungus', fungusHP);
-//     }
-//     if(fighterAP <= 0){
-//         fighterAP = 0;
-//         console.log('fighter', fighterAP);
-//     }
-//     if(fungusHP === 0){
-//         fungusMovement.classList.replace('walk', 'dead');
-//         console.log('fungus2'), fungusHP;
-//     }
-//     if(fighterAP === 0){
-//         fungusMovement.classList.replace('walk', 'jump')
-//         console.log('fighter2', fighterAP);
-//     }
-//     if(fighterAP === 0 || fungusHP === 0){
-//         // fungusMovement.classList.replace('walk', 'jump')
-//         console.log('fighterfungus',fungusHP, fighterAP);
-//         attackButton.disabled = true;
-//     }
-// }
+    fungusRegen = setInterval(fungusRegen, 1000);
 
-// function dead(){
-//     if(fungusHP < min){
-//         console.log('Im dead', fungusHP);
-//         fungusHP = min;
-//     }
-    // let deadFungus = document.getElementsByClassName('freaky-fungus walk')[0];
-    // console.log('deadfungus', deadFungus);
+}
 
-    // fungusHP === min;
-    // deadFungus.innerHTML = `<div class="freaky-fungus dead"></div>`
-        
-    // console.log('deadfungus', deadFungus);
-// }
+function fungusRegen(){
+    if(fungusHP > 0 && fungusHP < 50){
+        hitPoints.innerText = `${fungusHP} HP`
+        fungusHP ++;
+        healthBar.value ++;
+    } else if(fungusHP > 50){
+        clearInterval();
+    }
+}
 
 
