@@ -3,6 +3,7 @@
 // Example:
 let fungusHP = 100;
 let fighterAP = 100;
+let min = 0;
 
 // let arcaneSceptorDoc = document.getElementById("attack-btn arcane-scepter").value;
 // let entangleDoc = document.getElementById("attack-btn entangle").value;
@@ -49,34 +50,74 @@ function attackArcane(event){
     console.log('Fire?', event);
     console.log(event.target.dataset);
     const hitPoints = document.getElementsByClassName('hp-text')[0]
-    console.log('This is hitpoints', hitPoints);
-    // let firstHitPoints= hitPoints[0].innerText = `${fungusHP} HP`
+    const attackPoints = document.getElementsByClassName('ap-text')[0]
+    // console.log('This is hitpoints', hitPoints);
+    console.log('This is attackpoints', attackPoints);
 
+    fighterAP -= Number(event.target.dataset.ap);
     fungusHP -= Number(event.target.dataset.hp);
-    console.log('this is fungus hp', fungusHP);
+    // console.log('this is fungus hp', fungusHP);
+    console.log('this is fighter ap', fighterAP);
 
     hitPoints.innerText = fungusHP;
+    attackPoints.innerText = fighterAP;
 
-//     const element = event.target;
-//     console.log(element);
-//     let arcaneSceptorDoc = document.getElementById("attack-btn arcane-scepter");
-    // let entangleDoc = document.getElementById("attack-btn entangle");
-    // let dragonBladeDoc = document.getElementById("attack-btn dragon-blade");
-    // let starFireDoc = document.getElementById("attack-btn star-fire");
-    // document.getElementById('ap-text').innerText += `${fighterAP}`
-    // document.getElementById('hp-text').innerText += `${fungusHP}`
-    // if(element === arcaneSceptorDoc){
-    //     fungusHP -14;
-    //     fighterAP -12;
-    // } 
-    // else if(element === entangleDoc){
-    //     fungusHP -9;
-    //     fighterAP -23;
-    // } else if(element === dragonBladeDoc){
-    //     fungusHP -47;
-    //     fighterAP -38;
-    // } else if(element === starFireDoc){
-    //     fungusHP -25;
-    //     fighterAP -33;
-    // }
+
+}
+
+function attackEntangle(event){
+    console.log('Fire?', event);
+    console.log(event.target.dataset);
+    const hitPoints = document.getElementsByClassName('hp-text')[0]
+    const attackPoints = document.getElementsByClassName('ap-text')[0]
+    // console.log('This is hitpoints', hitPoints);
+    console.log('This is attackpoints', attackPoints);
+
+    fighterAP -= Number(event.target.dataset.ap);
+    fungusHP -= Number(event.target.dataset.hp);
+    // console.log('this is fungus hp', fungusHP);
+    console.log('this is fighter ap', fighterAP);
+
+    hitPoints.innerText = fungusHP;
+    attackPoints.innerText = fighterAP;
+
+
+}
+
+function attackDragon(event){
+    console.log('Fire?', event);
+    console.log(event.target.dataset);
+    const hitPoints = document.getElementsByClassName('hp-text')[0]
+    const attackPoints = document.getElementsByClassName('ap-text')[0]
+    // console.log('This is hitpoints', hitPoints);
+    console.log('This is attackpoints', attackPoints);
+
+    fighterAP -= Number(event.target.dataset.ap);
+    fungusHP -= Number(event.target.dataset.hp);
+    // console.log('this is fungus hp', fungusHP);
+    console.log('this is fighter ap', fighterAP);
+
+    hitPoints.innerText = fungusHP;
+    attackPoints.innerText = fighterAP;
+
+
+}
+
+function attackStar(event){
+    console.log('Fire?', event);
+    console.log(event.target.dataset);
+    const hitPoints = document.getElementsByClassName('hp-text')[0]
+    const attackPoints = document.getElementsByClassName('ap-text')[0]
+    // console.log('This is hitpoints', hitPoints);
+    console.log('This is attackpoints', attackPoints);
+
+    fighterAP -= Number(event.target.dataset.ap);
+    fungusHP -= Number(event.target.dataset.hp);
+    // console.log('this is fungus hp', fungusHP);
+    console.log('this is fighter ap', fighterAP);
+
+    hitPoints.innerText = fungusHP;
+    attackPoints.innerText = fighterAP;
+
+
 }
